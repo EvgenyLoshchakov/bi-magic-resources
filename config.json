@@ -1,4 +1,5 @@
 {
   "port": 3003,
-  "server": ""
+  "server": "http://10.48.25.146/",
+  "noRemove": true
 }
