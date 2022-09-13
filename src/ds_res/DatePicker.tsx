@@ -25,7 +25,7 @@ export default class MyCustomComponent extends React.Component<any> {
     this.state = {
       data: [],
       theme: {},
-      value: new Date(),
+      value: dayjs(new Date()),
       dates: [],
     };
   }
@@ -34,6 +34,7 @@ export default class MyCustomComponent extends React.Component<any> {
     ThemeVC.getInstance().subscribeUpdatesAndNotify(this._onThemeVCUpdated);
 
     const { cfg } = this.props;
+
     const koob =
       cfg.getRaw().koob || "luxmsbi.custom_melt_steel_oper_newation_4";
     this._myService = MyService.createInstance(koob);
@@ -75,6 +76,10 @@ export default class MyCustomComponent extends React.Component<any> {
     const { value, dates } = this.state;
     const minDate = dates?.sort()[0];
 
+    const valueFormat = value ? value?.format()?.slice(0, 10) : "";
+    const currentDateFormat = dayjs(new Date()).format()?.slice(0, 10) || "";
+    const isToday = valueFormat === currentDateFormat;
+
     return (
       <div className="wrapper">
         <LocalizationProvider dateAdapter={AdapterDayjs}>
@@ -91,9 +96,13 @@ export default class MyCustomComponent extends React.Component<any> {
           />
         </LocalizationProvider>
 
-        <div className="button" onClick={this.setToday}>
-          Показать за сегодня
-        </div>
+        {isToday ? (
+          <div className="button disable">Выбран сегодняшний день</div>
+        ) : (
+          <div className="button " onClick={this.setToday}>
+            Показать за сегодня
+          </div>
+        )}
       </div>
     );
   }

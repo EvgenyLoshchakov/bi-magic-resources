@@ -8,7 +8,9 @@ $main: #001729;
   display: flex;
   justify-content: space-between;
   padding: 0;
-  margin-top: 110px;
+  position: relative;
+  top: 110px;
+  height: calc(100% - 110px);
 }
 
 .wrapper {
@@ -41,7 +43,7 @@ $main: #001729;
 .row-title {
   display: flex;
   justify-content: space-between;
-  padding: 12px 24px 12px 24px;
+  padding: 16px 24px 12px 24px;
   font-size: 14px;
   font-weight: 500;
   position: relative;
@@ -69,7 +71,9 @@ $main: #001729;
 }
 
 .row-title-shift {
-  padding: 0 36px;
+  padding-left: 36px;
+  padding-right: 48px;
+  align-items: center;
 }
 
 .row-shift {
@@ -116,6 +120,14 @@ $main: #001729;
     right: -16px;
     z-index: 777777;
   }
+
+  .row-item:nth-child(2) {
+    left: 20px;
+  }
+
+  .row-item:nth-child(3) {
+    left: 20px;
+  }
 }
 
 .button {
@@ -144,6 +156,15 @@ $main: #001729;
     box-shadow: none;
     transition: all 0.3s;
     cursor: pointer;
+  }
+}
+
+.disable {
+  opacity: 0.7;
+
+  &:hover {
+    background: #167ffb;
+    cursor: default;
   }
 }
 
@@ -188,7 +209,6 @@ $main: #001729;
   font-size: 20px;
   color: #ff9e9e;
   margin: 32px;
-  // padding-left: 30px;
 }
 
 // Scroll bar (Mozilla)

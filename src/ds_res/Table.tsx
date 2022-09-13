@@ -136,19 +136,16 @@ export default class Shift1 extends React.Component<any> {
             return (
               <div className="row row-shift">
                 <div className="row-item">
-                  {item.p_s_1 || item.p_s_1 === 0 ? "—" : item.p_s_1}
+                  {item.p_s_1 && item.p_s_1 !== 0 ? item.p_s_1 : "—"}
                 </div>
-
                 <div className="row-item">
-                  {item.r_s_1 || item.r_s_1 === 0 ? "—" : item.r_s_1}
+                  {item.r_s_1 && item.r_s_1 !== 0 ? item.r_s_1 : "—"}
                 </div>
-
                 <div className="row-item">
-                  {item.o_s_1 || item.o_s_1 === 0 ? "—" : item.o_s_1}
+                  {item.o_s_1 && item.o_s_1 !== 0 ? item.o_s_1 : "—"}
                 </div>
-
                 <div className="row-item">
-                  {item.k_s_1 || item.k_s_1 === 0 ? "—" : item.k_s_1}
+                  {item.k_s_1 && item.k_s_1 !== 0 ? item.k_s_1 : "—"}
                 </div>
               </div>
             );
@@ -170,19 +167,16 @@ export default class Shift1 extends React.Component<any> {
             return (
               <div className="row row-shift">
                 <div className="row-item">
-                  {item.p_s_2 || item.p_s_2 === 0 ? "—" : item.p_s_2}
+                  {item.p_s_2 && item.p_s_2 !== 0 ? item.p_s_2 : "—"}
                 </div>
-
                 <div className="row-item">
-                  {item.r_s_2 || item.r_s_2 === 0 ? "—" : item.r_s_2}
+                  {item.r_s_2 && item.r_s_2 !== 0 ? item.r_s_2 : "—"}
                 </div>
-
                 <div className="row-item">
-                  {item.o_s_2 || item.o_s_2 === 0 ? "—" : item.o_s_2}
+                  {item.o_s_2 && item.o_s_2 !== 0 ? item.o_s_2 : "—"}
                 </div>
-
                 <div className="row-item">
-                  {item.k_s_2 || item.k_s_2 === 0 ? "—" : item.k_s_2}
+                  {item.k_s_2 && item.k_s_2 !== 0 ? item.k_s_2 : "—"}
                 </div>
               </div>
             );
@@ -204,19 +198,16 @@ export default class Shift1 extends React.Component<any> {
             return (
               <div className="row row-shift">
                 <div className="row-item">
-                  {item.p_s_3 || item.p_s_3 === 0 ? "—" : item.p_s_3}
+                  {item.p_s_3 && item.p_s_3 !== 0 ? item.p_s_3 : "—"}
                 </div>
-
                 <div className="row-item">
-                  {item.r_s_3 || item.r_s_3 === 0 ? "—" : item.r_s_3}
+                  {item.r_s_3 && item.r_s_3 !== 0 ? item.r_s_3 : "—"}
                 </div>
-
                 <div className="row-item">
-                  {item.o_s_3 || item.o_s_3 === 0 ? "—" : item.o_s_3}
+                  {item.o_s_3 && item.o_s_3 !== 0 ? item.o_s_3 : "—"}
                 </div>
-
                 <div className="row-item">
-                  {item.k_s_3 || item.k_s_3 === 0 ? "—" : item.k_s_3}
+                  {item.k_s_3 && item.k_s_3 !== 0 ? item.k_s_3 : "—"}
                 </div>
               </div>
             );
