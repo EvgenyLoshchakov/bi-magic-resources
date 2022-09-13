@@ -100,10 +100,6 @@ export class MyService extends BaseService<IMyServiceModel> {
     }
   }
 
-  // private setFilter(currentDate) {
-  //   this._updateWithData({ currentDate });
-  // }
-
   protected _dispose() {
     if (window.__myService && window.__myService[String(this.id)]) {
       delete window.__myService[String(this.id)];
