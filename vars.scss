@@ -1,0 +1,259 @@
+$huge: 1.9rem;
+$large: 1.3rem;
+$normal: 1.3rem;
+$small: 1rem;
+
+$rounded-corner: 0.2rem;
+
+//colors
+$primary: var(--primary);
+$secondary: var(--secondary);
+$success: var(--success);
+$warning: var(--warning);
+$danger: var(--danger);
+$info: var(--info);
+$disabled: var(--disabled);
+$black: var(--black);
+$white: var(--white);
+$primary-color: var(--primary-color);
+$secondary-color: var(--secondary-color);
+$highlight-color1: var(--highlight-color1);
+$highlight-color2: var(--highlight-color2);
+$highlight-color3: var(--highlight-color3);
+$highlight-color4: var(--highlight-color4);
+$highlight-color5: var(--highlight-color5);
+$highlight-color6: var(--highlight-color6);
+$highlight-color7: var(--highlight-color7);
+$bg-color1: var(--bg-color1);
+$bg-color2: var(--bg-color2);
+$bg-color3: var(--bg-color3);
+$color1: var(--color1);
+$color2: var(--color2);
+$color3: var(--color3);
+$color4: var(--color4);
+$color5: var(--color5);
+$color6: var(--color6);
+$color7: var(--color7);
+$color8: var(--color8);
+$color9: var(--color9);
+$color10: var(--color10);
+$color11: var(--color11);
+$color12: var(--color12);
+$color13: var(--color13);
+$color14: var(--color14);
+$color15: var(--color15);
+$color16: var(--color16);
+$color17: var(--color17);
+$color18: var(--color18);
+$color19: var(--color19);
+$color20: var(--color20);
+$color_conditions: var(--color_conditions);
+$shadow_button: var(--shadow_button);
+$shadow_dash: var(--shadow_dash);
+$shadow_panel: var(--shadow_panel);
+$panel_push-up: var(--panel_push-up);
+$panel_push-down: var(--panel_push-down);
+$black: var(--black);
+$standard_main: var(--standard_main);
+$standard_main_norm: var(--standard_main_norm);
+$standard_rest: var(--standard_rest);
+$standard_diff: var(--standard_diff);
+$standard_diff_norm: var(--standard_diff_norm);
+$standard_other: var(--standard_other);
+$standard_other_norm: var(--standard_other_norm);
+$ghost_marker: var(--ghost_marker);
+$typo_normal: var(--typo_normal);
+$typo_primary: var(--typo_primary);
+$typo_success: var(--typo_success);
+$typo_secondary: var(--typo_secondary);
+$typo_warning: var(--typo_warning);
+$typo_alert: var(--typo_alert);
+$typo_caution: var(--typo_caution);
+$typo_link: var(--typo_link);
+$typo_ghost: var(--typo_ghost);
+$bg_default: var(--bg_default);
+$bg_border: var(--bg_border);
+$bg_secondary: var(--bg_secondary);
+$bg_stripe: var(--bg_stripe);
+$bg_success: var(--bg_success);
+$bg_normal: var(--bg_normal);
+$bg_tone: var(--bg_tone);
+$control_default_typo: var(--control_default_typo);
+$control_default_bg: var(--control_default_bg);
+$control_default_bg_border: var(--control_default_bg_border);
+$control_default_bg_border_focus: var(--control_default_bg_border_focus);
+$control_default_typo_placeholder: var(--control_default_typo_placeholder);
+$control_primary_typo: var(--control_primary_typo);
+$control_primary_bg: var(--control_primary_bg);
+$etalon: var(--etalon);
+$etalon_norm: var(--etalon_norm);
+$control_secondary_bg_border: var(--control_secondary_bg_border);
+$control_secondary_typo: var(--control_secondary_typo);
+$control_ghost_bg: var(--control_ghost_bg);
+$control_ghost_typo: var(--control_ghost_typo);
+$control_clear_typo: var(--control_clear_typo);
+$control_clear_bg_hover: var(--control_clear_bg_hover);
+$control_disable_bg: var(--control_disable_bg);
+$control_disable_typo: var(--control_disable_typo);
+$scrollbar: var(--scrollbar);
+$scrollbar_bg: var(--scrollbar_bg);
+$area_success: var(--area_success);
+$area_caution: var(--area_caution);
+$area_warning: var(--area_warning);
+$area_alert: var(--area_alert);
+$empty_chart: var(--empty_chart);
+$shadow_layer: var(--shadow_layer);
+
+$color21: #0097D8;
+
+$main-color:                            #9797C4             !default;
+$active-color-1:                        #E85498             !default;
+
+
+$rounded-corner:                        5px                 !default;
+$inter-font-family:                     'Inter'             !default;
+$inter-font-size:                       16px                !default;
+$main-font-family:                      'Segoe UI'          !default;
+$main-font-size:                        16px                !default;
+$font:                                  $main-font-size $main-font-family, "Helvetica Neue", "Helvetica", "Arial", sans-serif !default;
+$font-inter:                            $inter-font-family, "Helvetica Neue", "Helvetica", "Arial", sans-serif !default;
+
+// sizes
+$dlg-auth-width:                        610px               !default;
+$dlg-auth-height:                       319px               !default;
+$VizelDashlet-header-height:            33px                !default;
+$shell-header-height:                   46px                !default;
+$shell-dataset-title-height:            29px                !default;
+$horizontal-panel-width:                350px               !default;
+$periods-panel-height:                  77px                !default;
+$periods-panel-top-offset:              calc(#{$shell-header-height} + #{$shell-dataset-title-height}) !default;
+$dashboards-header-height:              40px                !default;
+$periods-panel-height-x2:               120px               !default;
+$header-height:                         40px                !default;
+
+$primary:       #1D3557 !default;
+$light:         #A8DADC !default;
+$red:           #960200 !default;
+$green:         #5BA221 !default;
+$yellow:        #F3DE2C !default;
+$background:    #FFFFFF !default;
+$lines:         #CCD9E0 !default;
+
+// 455a64
+
+$active-color:                          #64b5f6             !default;
+$shell-header-color:                    #ffffff             !default;
+$shell-header-gradient-start:           #575757             !default;
+$shell-header-gradient-end:             #232323             !default;
+$shell-dataset-title-background:        #000000             !default;
+$range-text-color:                      #33617D             !default;
+
+$error-color: #ff0000 !default;
+
+$dashboard-bg-color: #f9f9f9; // цвет заглушки правого меню для скрытия скролла дашбордов под ней
+
+// behaviour
+$shell-header-display-logo:             true                !default;
+$shell-header-display-logout:           true                !default;
+$shell-header-display-toolbar:          true                !default;
+$hasDatasetsList:                       false               !default;
+$hasFullMainToolbar:                    false               !default;
+
+// will be available to in code
+:export {
+  hasDatasetsList: $hasDatasetsList;
+  hasFullMainToolbar: $hasFullMainToolbar;
+  mainFontFamily: $main-font-family;
+  mainFontSize: $main-font-size;
+  mainColor: $main-color;
+  font: $font;
+}
+
+$img-arrow: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAiIGhlaWdodD0iOSIgdmlld0JveD0iMCAwIDEwIDkiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxwYXRoIGQ9Ik03LjI5Mjg2IDUuMDAwMDNIMFY0LjAwMDAzSDcuMjkyODVMNC42NDY0MSAxLjM1MzU5TDUuMzUzNTIgMC42NDY0ODRMOS4yMDcwNyA0LjUwMDA0TDUuMzUzNTIgOC4zNTM1OUw0LjY0NjQxIDcuNjQ2NDhMNy4yOTI4NiA1LjAwMDAzWiIgZmlsbD0iIzAwMzk1QyIgZmlsbC1vcGFjaXR5PSIwLjgiLz4KPC9zdmc+Cg==");
+$img-modestArrow: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIiIGhlaWdodD0iOCIgdmlld0JveD0iMCAwIDEyIDgiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxwYXRoIGQ9Ik0xMC41OSAwLjU4OTg0NEw2IDUuMTY5ODRMMS40MSAwLjU4OTg0NEwwIDEuOTk5ODRMNiA3Ljk5OTg0TDEyIDEuOTk5ODRMMTAuNTkgMC41ODk4NDRaIiBmaWxsPSIjMDAzOTVDIiBmaWxsLW9wYWNpdHk9IjAuOCIvPgo8L3N2Zz4K");
+
+
+
+// mixins...
+@mixin transform($property) {
+  -webkit-transform: $property;
+  -moz-transform: $property;
+  -ms-transform: $property;
+  -o-transform: $property;
+  transform: $property;
+}
+
+@mixin transition-transform($duration) {
+  -webkit-transition-duration: $duration;
+  -moz-transition-duration: $duration;
+  -ms-transition-duration: $duration;
+  -o-transition-duration: $duration;
+  transition-duration: $duration;
+
+  -webkit-transition-property: -webkit-transform, rotateY;
+  -moz-transition-property: -moz-transform, rotateY;
+  -ms-transition-property: -ms-transform, rotateY;
+  -o-transition-property: -o-transform, rotateY;
+  transition-property: transform, rotateY;
+}
+
+@mixin magic-center() {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  @include transform(translate(-50%, -50%));
+}
+
+@mixin gradient ($startColor: #eee, $endColor: white) {
+  background: $startColor;
+  background: -webkit-gradient(linear, left top, left bottom, from($startColor), to($endColor));
+  background: -webkit-linear-gradient(top, $startColor, $endColor);
+  background: -moz-linear-gradient(top, $startColor, $endColor);
+  background: -ms-linear-gradient(top, $startColor, $endColor);
+  background: -o-linear-gradient(top, $startColor, $endColor);
+  background: linear-gradient(to bottom, $startColor, $endColor);
+}
+
+@mixin error-background() {
+  background: repeating-linear-gradient(-45deg, #ffcdd2, #ffcdd2 10px, #ffdede 10px, #ffdede 20px);
+}
+
+@mixin dots-preloader() {
+  position: relative;
+  > * { opacity: 0.7;  }
+  &::after {
+    display: block;
+    position: absolute;
+    content: ' ';
+    left: 50%;
+    top: 1px;
+    transform: translate(-50%, -50%);
+
+    width: 90%;
+    height: 40px;
+    max-width: 300px;
+    background-image: var(--loading-gif);
+    background-repeat: no-repeat;
+    background-size: 100% 15px;
+    z-index: 100;
+    margin: 15px 0 0 0;
+    padding: 0;
+  }
+  &.loadingFirstTime::after {
+    top: 50%;
+  }
+}
+
+@function strip-unit($number) {
+  @if type-of($number) == 'number' and not unitless($number) {
+    @return $number / ($number * 0 + 1);
+  }
+
+  @return $number;
+}
+
+@function convertToRem($fontSize) {
+  $fontSize: strip-unit($fontSize);
+  @return calc( #{$fontSize + rem} / 16 );
+}
+

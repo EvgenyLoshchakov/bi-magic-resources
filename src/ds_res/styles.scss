@@ -5,11 +5,30 @@ $main: #001729;
   height: 100%;
   font-family: PTRootUI, sans-serif;
   color: $main;
-  padding-left: 8px;
+  display: flex;
+  justify-content: space-between;
+  padding: 0;
+  margin-top: 110px;
 }
 
 .wrapper {
-  padding-top: 12px;
+  padding-top: 20px;
+  padding-left: 0;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  min-width: 25%;
+  position: relative;
+}
+
+.column:last-child {
+  margin: 0;
+
+  .row-item:last-child:after {
+    display: none;
+  }
 }
 
 .title {
@@ -22,26 +41,84 @@ $main: #001729;
 .row-title {
   display: flex;
   justify-content: space-between;
-  border-bottom: 1px solid #d6dadd;
-  padding: 12px 24px 12px 16px;
+  padding: 12px 24px 12px 24px;
   font-size: 14px;
   font-weight: 500;
+  position: relative;
+
+  &::after {
+    content: "";
+    position: absolute;
+    height: 1px;
+    bottom: -1px;
+    left: 0;
+    width: 100%;
+    z-index: 99;
+    background-color: #d6dadd;
+  }
 }
 
 .row-title {
   color: #40515e;
   height: 48px;
   display: flex;
-  align-items: center;
+  width: 100%;
+  justify-content: space-between;
+  position: relative;
+  padding-right: 30px;
+}
+
+.row-title-shift {
+  padding: 0 36px;
+}
+
+.row-shift {
+  padding: 12px 40px;
+}
+
+.title-shift {
+  padding-left: 36px;
+}
+
+.fixed {
+  position: fixed;
+  background-color: #fff;
+  width: 25%;
+  top: 6px;
+}
+
+.fixed-shift {
+  &:after {
+    content: "";
+    width: 16px;
+    position: absolute;
+    top: 0;
+    height: 100%;
+    background-color: #f2f2f8;
+    left: 0;
+    z-index: 113464536451;
+  }
 }
 
 .row {
   font-size: 16px;
   width: 100%;
   height: 40px;
+  position: relative;
+
+  .row-item:last-child:after {
+    content: "";
+    width: 16px;
+    position: absolute;
+    top: 0;
+    height: 100%;
+    background-color: #f2f2f8;
+    right: -16px;
+    z-index: 777777;
+  }
 }
 
-.buttons {
+.button {
   padding: 0.625rem 1rem;
   min-width: 64px;
   box-sizing: border-box;
@@ -61,6 +138,21 @@ $main: #001729;
   background-color: #167ffb;
   text-transform: none;
   margin-left: 16px;
+
+  &:hover {
+    background: #1394fa;
+    box-shadow: none;
+    transition: all 0.3s;
+    cursor: pointer;
+  }
+}
+
+.loader {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .wrapper {
@@ -92,10 +184,11 @@ $main: #001729;
 .noData {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: left;
   font-size: 20px;
   color: #ff9e9e;
-  padding-top: 24px;
+  margin: 32px;
+  // padding-left: 30px;
 }
 
 // Scroll bar (Mozilla)
@@ -117,8 +210,10 @@ body {
 /* ползунок скроллбара */
 ::-webkit-scrollbar-thumb {
   background-color: #e0e3e5;
-  height: 93px;
+  height: 90px;
   border-radius: 9em;
+  position: relative;
+  z-index: 999999999;
   box-shadow: inset 1px 1px 30px #e0e3e5;
 }
 

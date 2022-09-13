@@ -1,6 +1,5 @@
 import { AppConfig, BaseService } from "bi-internal/core";
 import axios from "axios";
-import { dateFormat } from "../utils/dateformat";
 
 export interface IMyServiceModel {
   loading?: boolean;
@@ -25,25 +24,17 @@ export class MyService extends BaseService<IMyServiceModel> {
     this.id = koobId;
     const dimensions = ["acc_date"];
 
-    // console.log("MyService updated!");
-
     this.getKoobDataByCfg({
       with: "luxmsbi.custom_melt_steel_oper_newation_4",
       columns: dimensions,
     }).then((data) => {
-      // console.log(data, "DATA MyService");
-
       const dates = data.map((item) => item.acc_date);
       let uniqueDates = dates?.filter((item, i, ar) => ar.indexOf(item) === i);
-
-      console.log(dates, "dates filters");
 
       this._updateWithData({
         data,
         currentDate: uniqueDates.sort().at(-1),
       });
-
-      // this._updateWithData({ currentDate: date });
     });
   }
 
@@ -109,12 +100,8 @@ export class MyService extends BaseService<IMyServiceModel> {
     }
   }
 
-  private setFilter(currentDate) {
-    this._updateWithData({ currentDate });
-  }
-
-  // public setFilter( currentScenarioTo ) {
-  //   this._updateWithData({currentScenarioTo});
+  // private setFilter(currentDate) {
+  //   this._updateWithData({ currentDate });
   // }
 
   protected _dispose() {

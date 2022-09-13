@@ -1,8 +1,7 @@
 import React from "react";
-import "./DatePicker.scss";
+import "./styles.scss";
 import { MyService } from "../services/MyService";
 import { ThemeVC } from "bi-internal/services";
-import Button from "@mui/material/Button";
 import { dateFormat } from "../utils/dateformat";
 import dayjs, { Dayjs } from "dayjs";
 import TextField from "@mui/material/TextField";
@@ -49,8 +48,6 @@ export default class MyCustomComponent extends React.Component<any> {
   private _onSvcUpdated = (model) => {
     if (model.loading || model.error) return;
 
-    // console.log(model, "MODEL CurrentDate DatePicker");
-
     let uniqueDates = model.dates.filter(
       (item, i, ar) => ar.indexOf(item) === i
     );
@@ -64,20 +61,19 @@ export default class MyCustomComponent extends React.Component<any> {
 
   handleChange = (newValue: Dayjs | null) => {
     this.setState({ value: newValue });
-    this._myService?.setFilter(dateFormat(this.state.value));
+
+    const valueFormat = newValue?.format().slice(0, 11);
+    this._myService?.setCurrentDate(`${valueFormat}00:00:00.000+00:00`);
   };
 
   setToday = () => {
     this.setState({ value: dayjs(new Date()) });
-
-    this._myService?.setCurrentDate(dateFormat(this.state.value));
+    this._myService?.setCurrentDate(dateFormat(new Date()));
   };
 
   public render() {
     const { value, dates } = this.state;
     const minDate = dates?.sort()[0];
-
-    // console.log(value, "MY COMPONENT DATE-VALUE");
 
     return (
       <div className="wrapper">
@@ -88,15 +84,16 @@ export default class MyCustomComponent extends React.Component<any> {
             value={value}
             className="datepicker"
             onChange={this.handleChange}
+            minDate={minDate}
             renderInput={(params) => <TextField {...params} />}
             disableFuture
-            minDate={minDate}
+            closeOnSelect
           />
         </LocalizationProvider>
 
-        <Button className="buttons" variant="contained" onClick={this.setToday}>
-          Показать за сегодняшний день
-        </Button>
+        <div className="button" onClick={this.setToday}>
+          Показать за сегодня
+        </div>
       </div>
     );
   }

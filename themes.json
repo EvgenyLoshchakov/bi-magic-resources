@@ -1,0 +1,12 @@
+{
+  "light": {
+    "color8": "#0070BA",
+    "color20": "#fff",
+    "color19": "#F2F2F8"
+  },
+  "dark": {
+    "color8": "#fff",
+    "color20": "#fff",
+    "color19": "#fff"
+  }
+}
