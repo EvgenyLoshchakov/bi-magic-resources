@@ -1,5 +1,5 @@
 import React from "react";
-import "./MyCustomComponent.scss";
+import "./DatePicker.scss";
 import { MyService } from "../services/MyService";
 import { ThemeVC } from "bi-internal/services";
 import List from "./List";
@@ -26,7 +26,8 @@ export default class Shift1 extends React.Component<any> {
   public componentDidMount(): void {
     ThemeVC.getInstance().subscribeUpdatesAndNotify(this._onThemeVCUpdated);
     const { cfg } = this.props;
-    const koob = cfg.getRaw().koob;
+    const koob =
+      cfg.getRaw().koob || "luxmsbi.custom_melt_steel_oper_newation_4";
     this._myService = MyService.createInstance(koob);
     this._myService.subscribeUpdatesAndNotify(this._onSvcUpdated);
   }
@@ -40,18 +41,14 @@ export default class Shift1 extends React.Component<any> {
     const { cfg } = this.props;
     const koob =
       cfg.getRaw().koob || "luxmsbi.custom_melt_steel_oper_newation_4";
+    // console.log(model, "model Shift1");
 
-    // const filters =
-    //   model.currentDate !== ""
-    //     ? {}
-    //     : { acc_date: ["=", "2022-09-03T00:00:00.000+00:00"] };
-
-    const filters = { acc_date: ["=", "2022-09-05T00:00:00.000+00:00"] };
+    const filters =
+      model.currentDate !== "" ? { acc_date: ["=", model.currentDate] } : {};
 
     if (model.loading || model.error) return;
 
-    // 2022-09-05T00:00:00.000+00:00
-
+    // console.log(filters, "filters Shift1");
     this._myService
       .getKoobDataByCfg({
         with: koob,
@@ -59,11 +56,10 @@ export default class Shift1 extends React.Component<any> {
         filters,
       })
       .then((data) => {
-        // console.log(data, "DATA");
         this.setState({ data });
       });
 
-    console.log("updated!");
+    // console.log("Shift1 updated!");
   };
 
   public componentWillUnmount() {
@@ -73,6 +69,8 @@ export default class Shift1 extends React.Component<any> {
   public render() {
     const { data } = this.state;
     const shiftsTitles = ["Приход, т", "Расход, т", "Остаток, т", "Корр."];
+
+    console.log(data, "DATA Shift1");
 
     return <List data={data} title={"Смена 1"} subtitles={shiftsTitles} />;
   }

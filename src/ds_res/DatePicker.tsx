@@ -1,10 +1,9 @@
 import React from "react";
-import "./MyCustomComponent.scss";
+import "./DatePicker.scss";
 import { MyService } from "../services/MyService";
 import { ThemeVC } from "bi-internal/services";
 import Button from "@mui/material/Button";
-
-// import { shiftTimeZone } from "../utils/dateformat";
+import { dateFormat } from "../utils/dateformat";
 import dayjs, { Dayjs } from "dayjs";
 import TextField from "@mui/material/TextField";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
@@ -36,7 +35,8 @@ export default class MyCustomComponent extends React.Component<any> {
     ThemeVC.getInstance().subscribeUpdatesAndNotify(this._onThemeVCUpdated);
 
     const { cfg } = this.props;
-    const koob = cfg.getRaw().koob;
+    const koob =
+      cfg.getRaw().koob || "luxmsbi.custom_melt_steel_oper_newation_4";
     this._myService = MyService.createInstance(koob);
     this._myService.subscribeUpdatesAndNotify(this._onSvcUpdated);
   }
@@ -48,7 +48,8 @@ export default class MyCustomComponent extends React.Component<any> {
 
   private _onSvcUpdated = (model) => {
     if (model.loading || model.error) return;
-    // const test = [...new Set(model.dates)];
+
+    // console.log(model, "MODEL CurrentDate DatePicker");
 
     let uniqueDates = model.dates.filter(
       (item, i, ar) => ar.indexOf(item) === i
@@ -63,16 +64,20 @@ export default class MyCustomComponent extends React.Component<any> {
 
   handleChange = (newValue: Dayjs | null) => {
     this.setState({ value: newValue });
-    this._myService.setCurrentDate(newValue);
+    this._myService?.setFilter(dateFormat(this.state.value));
   };
 
   setToday = () => {
     this.setState({ value: dayjs(new Date()) });
+
+    this._myService?.setCurrentDate(dateFormat(this.state.value));
   };
 
   public render() {
     const { value, dates } = this.state;
     const minDate = dates?.sort()[0];
+
+    // console.log(value, "MY COMPONENT DATE-VALUE");
 
     return (
       <div className="wrapper">

@@ -1,6 +1,8 @@
 import React from "react";
 
 const List = ({ data, title, subtitles }) => {
+  // console.log(data, "DATA LIST COMPONENT");
+
   return (
     <div className="main">
       <div className="title">{title}</div>

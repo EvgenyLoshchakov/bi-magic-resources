@@ -1,5 +1,5 @@
 import React from "react";
-import "./MyCustomComponent.scss";
+import "./DatePicker.scss";
 import { MyService } from "../services/MyService";
 import { ThemeVC } from "bi-internal/services";
 import List from "./List";
@@ -26,7 +26,8 @@ export default class Shift1 extends React.Component<any> {
   public componentDidMount(): void {
     ThemeVC.getInstance().subscribeUpdatesAndNotify(this._onThemeVCUpdated);
     const { cfg } = this.props;
-    const koob = cfg.getRaw().koob;
+    const koob =
+      cfg.getRaw().koob || "luxmsbi.custom_melt_steel_oper_newation_4";
     this._myService = MyService.createInstance(koob);
     this._myService.subscribeUpdatesAndNotify(this._onSvcUpdated);
   }
@@ -41,7 +42,8 @@ export default class Shift1 extends React.Component<any> {
     const koob =
       cfg.getRaw().koob || "luxmsbi.custom_melt_steel_oper_newation_4";
 
-    // const filters = cfg.getRaw().dataSource?.filters || {};
+    const filters =
+      model.currentDate !== "" ? { acc_date: ["=", model.currentDate] } : {};
 
     if (model.loading || model.error) return;
 
@@ -49,6 +51,7 @@ export default class Shift1 extends React.Component<any> {
       .getKoobDataByCfg({
         with: koob,
         columns: renderColumns,
+        filters,
       })
       .then((data) => {
         this.setState({ data });

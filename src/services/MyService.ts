@@ -1,12 +1,14 @@
 import { AppConfig, BaseService } from "bi-internal/core";
 import axios from "axios";
+import { dateFormat } from "../utils/dateformat";
 
 export interface IMyServiceModel {
   loading?: boolean;
   error?: string;
   data: any;
   filters: any;
-  dictionaries: any;
+  dimensions: any;
+  currentDate: any;
 }
 export class MyService extends BaseService<IMyServiceModel> {
   private readonly id: string | number;
@@ -16,25 +18,37 @@ export class MyService extends BaseService<IMyServiceModel> {
       loading: false,
       error: null,
       data: [],
-      dates: [],
       dimensions: ["acc_date"],
       currentDate: "",
     });
 
     this.id = koobId;
-
     const dimensions = ["acc_date"];
+
+    // console.log("MyService updated!");
 
     this.getKoobDataByCfg({
       with: "luxmsbi.custom_melt_steel_oper_newation_4",
       columns: dimensions,
     }).then((data) => {
-      this._updateWithData({ dates: data.map((item) => item.acc_date) });
-      // console.log(
-      //   data.map((item) => item.acc_date),
-      //   "datae"
-      // );
+      // console.log(data, "DATA MyService");
+
+      const dates = data.map((item) => item.acc_date);
+      let uniqueDates = dates?.filter((item, i, ar) => ar.indexOf(item) === i);
+
+      console.log(dates, "dates filters");
+
+      this._updateWithData({
+        data,
+        currentDate: uniqueDates.sort().at(-1),
+      });
+
+      // this._updateWithData({ currentDate: date });
     });
+  }
+
+  public setCurrentDate(date: any) {
+    this._updateWithData({ currentDate: date });
   }
 
   public async getKoobDataByCfg(cfg): Promise<any> {
@@ -94,9 +108,15 @@ export class MyService extends BaseService<IMyServiceModel> {
       return "";
     }
   }
-  private setFilters(filters) {
-    this._updateModel({ filters });
+
+  private setFilter(currentDate) {
+    this._updateWithData({ currentDate });
   }
+
+  // public setFilter( currentScenarioTo ) {
+  //   this._updateWithData({currentScenarioTo});
+  // }
+
   protected _dispose() {
     if (window.__myService && window.__myService[String(this.id)]) {
       delete window.__myService[String(this.id)];
