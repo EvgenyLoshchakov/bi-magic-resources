@@ -32,9 +32,7 @@ export default class MyCustomComponent extends React.Component<any> {
 
   public componentDidMount(): void {
     ThemeVC.getInstance().subscribeUpdatesAndNotify(this._onThemeVCUpdated);
-
     const { cfg } = this.props;
-
     const koob =
       cfg.getRaw().koob || "luxmsbi.custom_melt_steel_oper_newation_4";
     this._myService = MyService.createInstance(koob);

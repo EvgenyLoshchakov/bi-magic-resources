@@ -1,10 +1,12 @@
 $main: #001729;
 
+@import "vars.scss";
+
 .main {
   overflow: auto;
   height: 100%;
   font-family: PTRootUI, sans-serif;
-  color: $main;
+  color: $color21;
   display: flex;
   justify-content: space-between;
   padding: 0;
@@ -56,12 +58,11 @@ $main: #001729;
     left: 0;
     width: 100%;
     z-index: 99;
-    background-color: #d6dadd;
+    background-color: $color22;
   }
 }
 
 .row-title {
-  color: #40515e;
   height: 48px;
   display: flex;
   width: 100%;
@@ -77,16 +78,16 @@ $main: #001729;
 }
 
 .row-shift {
-  padding: 12px 40px;
+  padding: 12px 54px;
 }
 
 .title-shift {
-  padding-left: 36px;
+  text-align: center;
 }
 
 .fixed {
   position: fixed;
-  background-color: #fff;
+  background-color: $color27;
   width: 25%;
   top: 6px;
 }
@@ -98,7 +99,7 @@ $main: #001729;
     position: absolute;
     top: 0;
     height: 100%;
-    background-color: #f2f2f8;
+    background-color: $color25;
     left: 0;
     z-index: 113464536451;
   }
@@ -116,7 +117,7 @@ $main: #001729;
     position: absolute;
     top: 0;
     height: 100%;
-    background-color: #f2f2f8;
+    background-color: $color23;
     right: -16px;
     z-index: 777777;
   }
@@ -186,6 +187,11 @@ $main: #001729;
   font-family: PTRootUI, sans-serif;
   width: 220px;
   height: 40px;
+  color: $color24;
+
+  label {
+    color: $color24;
+  }
 
   input {
     border-radius: 4px;
@@ -195,10 +201,12 @@ $main: #001729;
     height: 40px;
     padding: 0 16px;
     font-style: normal;
+    color: $color24;
+    border-color: $color24;
   }
 
   svg {
-    fill: #167ffb;
+    fill: $color26;
   }
 }
 

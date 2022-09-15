@@ -24,7 +24,7 @@ const renderColumns = [
   "K_S_3",
 ];
 
-export default class Shift1 extends React.Component<any> {
+export default class Table extends React.Component<any> {
   private _myService: MyService;
   public _chart: any = null;
 
@@ -79,7 +79,8 @@ export default class Shift1 extends React.Component<any> {
   }
 
   public render() {
-    const { data, loading } = this.state;
+    const { data, loading, theme } = this.state;
+
     const shiftsTitles = ["Приход, т", "Расход, т", "Остаток, т", "Корр."];
 
     const isData = data.length > 0 && !loading;
