@@ -94,19 +94,16 @@
     .furnace-name {
       margin-bottom: 12px;
       background-color: $color18;
+      display: inline-block;
+      padding: 4px 8px 3px;
+      border-radius: 30px;
+      color: $color21;
 
       &.dc1 {
         background-color: $color18;
       }
       &.dc2 {
         background-color: $color17;
-      }
-
-      span {
-        display: inline-block;
-        padding: 4px 8px 3px;
-        border-radius: 30px;
-        color: $color21;
       }
     }
 
@@ -119,7 +116,7 @@
     }
 
     div {
-      color: $color20;
+      color: $color15;
     }
   }
 
@@ -151,7 +148,7 @@
 
     .furnace-results-row-name {
       font-weight: 500;
-      color: $color20;
+      color: $color15;
       min-width: 145px;
     }
   }
@@ -172,7 +169,7 @@
     font-size: 16px;
     font-weight: 500;
     padding-left: 24px;
-    border-bottom: 1px solid $color16;
+    border-bottom: 1px solid $color14;
     width: 100%;
     background-color: $color4;
     color: $color21;
@@ -214,7 +211,7 @@
     .footer-title,
     .footer-data {
       .footer-title-name {
-        border-right: 1px solid $color16;
+        border-right: 1px solid $color14;
         height: 100%;
         display: flex;
         align-items: center;

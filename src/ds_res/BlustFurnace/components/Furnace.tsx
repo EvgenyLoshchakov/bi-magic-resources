@@ -9,9 +9,7 @@ const Furnace = ({ data, name, secondName, className, motionColor }: any) => {
   return (
     <div className="furnace">
       <div className="furnace-block-name">
-        <div className={`${className} furnace-name`}>
-          <span>{name}</span>
-        </div>
+        <div className={`${className} furnace-name`}>{name}</div>
         <div
           className="furnace-name-icon"
           style={{ backgroundColor: motionColor }}
