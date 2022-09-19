@@ -1,24 +1,33 @@
 import React from "react";
 import "../styles.scss";
 import Histogramm from "./Histogramm";
+import getColorMoveFurnace from "../utils";
 
-const Furnace = ({ data, name, secondName, className, motionColor }: any) => {
-  const sum = (type) =>
+const Furnace = ({ data, dataEx6, name, className, currentTheme }: any) => {
+  const sum = (type: string) =>
     data.map((item) => item[type]).reduce((partialSum, a) => partialSum + a, 0);
 
   return (
     <div className="furnace">
       <div className="furnace-block-name">
-        <div className={`${className} furnace-name`}>{name}</div>
-        <div
-          className="furnace-name-icon"
-          style={{ backgroundColor: motionColor }}
-        />
-        <div>{secondName}</div>
+        {getColorMoveFurnace(dataEx6) &&
+          dataEx6.map((item) => {
+            return (
+              <>
+                <div className={`${className} furnace-name`}>{item.dp}</div>
+                <div
+                  className={`${
+                    getColorMoveFurnace(dataEx6)[0]
+                  } furnace-name-icon`}
+                />
+                <div>{name}</div>
+              </>
+            );
+          })}
       </div>
 
       <div className="furnace-histogram">
-        {data && <Histogramm data={data} />}
+        {data && <Histogramm data={data} currentTheme={currentTheme} />}
       </div>
 
       <div className="furnace-results">

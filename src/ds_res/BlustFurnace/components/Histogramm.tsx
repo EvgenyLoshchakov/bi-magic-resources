@@ -1,5 +1,4 @@
 import React from "react";
-
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -9,9 +8,6 @@ import {
   Tooltip,
   Legend,
 } from "chart.js";
-
-import { Bar } from "react-chartjs-2";
-
 ChartJS.register(
   CategoryScale,
   LinearScale,
@@ -20,8 +16,9 @@ ChartJS.register(
   Tooltip,
   Legend
 );
+import { Bar } from "react-chartjs-2";
 
-const Histogramm = ({ data }) => {
+const Histogramm = ({ data, currentTheme }) => {
   const labels = data?.map((item) => item.time_char);
 
   const options = {
@@ -29,6 +26,18 @@ const Histogramm = ({ data }) => {
     maintainAspectRatio: false,
     plugins: {
       legend: false,
+    },
+    scales: {
+      x: {
+        ticks: {
+          color: currentTheme === "light" ? "#001729" : "#fff",
+        },
+      },
+      y: {
+        ticks: {
+          color: currentTheme === "light" ? "#001729" : "#fff",
+        },
+      },
     },
   };
 
@@ -39,11 +48,13 @@ const Histogramm = ({ data }) => {
         label: "План",
         data: data?.map((item) => item.plan),
         backgroundColor: "#D0E9FF",
+        color: "red",
       },
       {
         label: "Прогноз",
         data: data?.map((item) => item.prog),
         backgroundColor: "#78C98B",
+        color: "blue",
       },
     ],
   };

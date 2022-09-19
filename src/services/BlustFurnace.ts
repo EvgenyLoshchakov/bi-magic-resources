@@ -17,6 +17,7 @@ export class BlustFurnaceService extends BaseService<IMyServiceModel> {
       dataEx3: [],
       dataEx4: [],
       dataEx5: [],
+      dataEx6: [],
       dimensions: ["plan", "prog"],
     });
 
@@ -30,9 +31,10 @@ export class BlustFurnaceService extends BaseService<IMyServiceModel> {
       "time_char",
     ];
 
-    const dimensionsEx3 = ["value"];
-    const dimensionsEx4 = ["value"];
-    const dimensionsEx5 = ["value"];
+    const dimensionsEx3 = ["analitika", "dp_all", "value"];
+    const dimensionsEx4 = ["analitika", "dp_all", "value"];
+    const dimensionsEx5 = ["analitika", "put", "value"];
+    const dimensionsEx6 = ["dp", "value"];
 
     this.getKoobDataByCfg({
       with: "luxmsbi.custom_dp_3_6_ex1",
@@ -67,6 +69,15 @@ export class BlustFurnaceService extends BaseService<IMyServiceModel> {
     }).then((dataEx5) => {
       this._updateWithData({
         dataEx5,
+      });
+    });
+
+    this.getKoobDataByCfg({
+      with: "luxmsbi.custom_dp_3_6_ex6",
+      columns: dimensionsEx6,
+    }).then((dataEx6) => {
+      this._updateWithData({
+        dataEx6,
       });
     });
   }

@@ -8,6 +8,7 @@ const Header = () => {
 
       <div className="legend">
         <div className="title-block">Ход печи:</div>
+        <div className="stopped">Остановлена</div>
         <div className="quiet">Тихий ход</div>
         <div className="norm">Норм. давление</div>
         <div className="low">Сниж. форс.</div>

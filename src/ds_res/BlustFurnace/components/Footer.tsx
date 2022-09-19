@@ -1,126 +1,98 @@
 import React from "react";
 import "../styles.scss";
 
-const Footer = () => {
+const Footer = ({ dataEx3, dataEx4, dataEx5 }) => {
+  const onlyUnique = (value, index, self) => {
+    return self.indexOf(value) === index;
+  };
+
+  const furnaceList = dataEx3
+    .map((item) => item?.dp_all)
+    .filter(onlyUnique)
+    .sort();
+
+  const renderFurnaceList = furnaceList?.map((item) => (
+    <div className="footer-title-name">{item}</div>
+  ));
+
+  const renderTable = (data) => {
+    const analyticsList = data
+      .map((item) => item?.analitika)
+      .filter(onlyUnique);
+
+    const splitData = analyticsList?.map((analytics) => {
+      return data
+        .map((item) => {
+          if (item?.analitika === analytics) {
+            return item;
+          }
+        })
+        .filter(Boolean);
+    });
+
+    return splitData.map((item) => {
+      const sortedItems = item.sort(function (a, b) {
+        return a["dp_all"] > b["dp_all"]
+          ? 1
+          : b["dp_all"] > a["dp_all"]
+          ? -1
+          : 0;
+      });
+
+      return (
+        <div className="footer-data">
+          <div className="footer-title-name">{item[0]?.analitika}</div>
+          {sortedItems.map((item2) => {
+            return <div className="footer-title-name">{item2?.value}</div>;
+          })}
+        </div>
+      );
+    });
+  };
+
+  const DC1 = dataEx5.filter((item) => item?.put.includes("ДЦ1"));
+  const DC2 = dataEx5.filter((item) => item?.put.includes("ДЦ2"));
+
+  const renderDC = (data) => {
+    return (
+      <>
+        <div className="footer-title">
+          <div className="footer-title-name">{data[0]?.put}</div>
+        </div>
+        <div className="footer-data">
+          {data?.map((item) => {
+            return <div className="footer-title-name">{item?.analitika}</div>;
+          })}
+        </div>
+        <div className="footer-data">
+          {data?.map((item) => (
+            <div className="footer-title-name">{item?.value}</div>
+          ))}
+        </div>
+      </>
+    );
+  };
+
   return (
     <div className="footer">
       <div className="footer-block">
         <div className="footer-title">
           <div className="footer-title-name">Показатель</div>
-          <div className="footer-title-name">ДП-3</div>
-          <div className="footer-title-name">ДП-4</div>
-          <div className="footer-title-name">ДП-5</div>
-          <div className="footer-title-name">ДП-6</div>
-          <div className="footer-title-name">ДП-7</div>
+          {renderFurnaceList}
         </div>
-        <div className="footer-data">
-          <div className="footer-title-name">Давление:</div>
-          <div className="footer-title-name">2,93</div>
-          <div className="footer-title-name">1,64</div>
-          <div className="footer-title-name">2,46</div>
-          <div className="footer-title-name">3,77</div>
-          <div className="footer-title-name">4,14</div>
-        </div>
-        <div className="footer-data">
-          <div className="footer-title-name">Давление дутья</div>
-          <div className="footer-title-name">2,93</div>
-          <div className="footer-title-name">1,64</div>
-          <div className="footer-title-name">2,46</div>
-          <div className="footer-title-name">3,77</div>
-          <div className="footer-title-name">4,14</div>
-        </div>
-        <div className="footer-data">
-          <div className="footer-title-name">Давление под копошником</div>
-          <div className="footer-title-name">2,93</div>
-          <div className="footer-title-name">1,64</div>
-          <div className="footer-title-name">2,46</div>
-          <div className="footer-title-name">3,77</div>
-          <div className="footer-title-name">4,14</div>
-        </div>
-        <div className="footer-result">
-          <div className="footer-title-name">Общий итог</div>
-          <div className="footer-title-name">2,93</div>
-          <div className="footer-title-name">1,64</div>
-          <div className="footer-title-name">2,46</div>
-          <div className="footer-title-name">3,77</div>
-          <div className="footer-title-name">4,14</div>
-        </div>
+        <div className="footer-data2">{renderTable(dataEx3)}</div>
       </div>
 
       <div className="footer-block">
         <div className="footer-title">
           <div className="footer-title-name">Аналитика</div>
-          <div className="footer-title-name">ДП-3</div>
-          <div className="footer-title-name">ДП-4</div>
-          <div className="footer-title-name">ДП-5</div>
-          <div className="footer-title-name">ДП-6</div>
-          <div className="footer-title-name">ДП-7</div>
+          {renderFurnaceList}
         </div>
-        <div className="footer-data">
-          <div className="footer-title-name">Расход дутья:</div>
-          <div className="footer-title-name">2,93</div>
-          <div className="footer-title-name">1,64</div>
-          <div className="footer-title-name">2,46</div>
-          <div className="footer-title-name">3,77</div>
-          <div className="footer-title-name">4,14</div>
-        </div>
-        <div className="footer-data">
-          <div className="footer-title-name">Расход кислорода</div>
-          <div className="footer-title-name">2,93</div>
-          <div className="footer-title-name">1,64</div>
-          <div className="footer-title-name">2,46</div>
-          <div className="footer-title-name">3,77</div>
-          <div className="footer-title-name">4,14</div>
-        </div>
-        <div className="footer-data">
-          <div className="footer-title-name">Расход ПГ</div>
-          <div className="footer-title-name">2,93</div>
-          <div className="footer-title-name">1,64</div>
-          <div className="footer-title-name">2,46</div>
-          <div className="footer-title-name">3,77</div>
-          <div className="footer-title-name">4,14</div>
-        </div>
-        <div className="footer-result">
-          <div className="footer-title-name">Общий итог</div>
-          <div className="footer-title-name">2,93</div>
-          <div className="footer-title-name">1,64</div>
-          <div className="footer-title-name">2,46</div>
-          <div className="footer-title-name">3,77</div>
-          <div className="footer-title-name">4,14</div>
-        </div>
+        <div className="footer-data2">{renderTable(dataEx4)}</div>
       </div>
 
-      <div className="footer-small-block">
-        <div className="footer-title">
-          <div className="footer-title-name">ПУТ ДЦ-1</div>
-        </div>
-        <div className="footer-data">
-          <div className="footer-title-name">ДЦ-4</div>
-          <div className="footer-title-name">ДЦ-5</div>
-          <div className="footer-title-name">Факт</div>
-        </div>
-        <div className="footer-data">
-          <div className="footer-title-name">12,46</div>
-          <div className="footer-title-name">23,77</div>
-          <div className="footer-title-name">34,14</div>
-        </div>
-      </div>
-
-      <div className="footer-small-block">
-        <div className="footer-title">
-          <div className="footer-title-name">ПУТ ДЦ-1</div>
-        </div>
-        <div className="footer-data">
-          <div className="footer-title-name">ДЦ-4</div>
-          <div className="footer-title-name">ДЦ-5</div>
-          <div className="footer-title-name">Факт</div>
-        </div>
-        <div className="footer-data">
-          <div className="footer-title-name">12,46</div>
-          <div className="footer-title-name">23,77</div>
-          <div className="footer-title-name">34,14</div>
-        </div>
-      </div>
+      <div className="footer-small-block">{renderDC(DC1)}</div>
+      <div className="footer-small-block">{renderDC(DC2)}</div>
     </div>
   );
 };
