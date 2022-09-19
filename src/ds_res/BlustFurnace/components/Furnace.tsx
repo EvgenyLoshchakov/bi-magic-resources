@@ -2,15 +2,15 @@ import React from "react";
 import "../styles.scss";
 import Histogramm from "./Histogramm";
 
-const Furnace = ({ data, name, secondName, titleColor, motionColor }: any) => {
+const Furnace = ({ data, name, secondName, className, motionColor }: any) => {
   const sum = (type) =>
     data.map((item) => item[type]).reduce((partialSum, a) => partialSum + a, 0);
 
   return (
     <div className="furnace">
       <div className="furnace-block-name">
-        <div className="furnace-name">
-          <span style={{ backgroundColor: titleColor }}>{name}</span>
+        <div className={`${className} furnace-name`}>
+          <span>{name}</span>
         </div>
         <div
           className="furnace-name-icon"

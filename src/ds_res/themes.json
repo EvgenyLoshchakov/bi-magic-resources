@@ -1,6 +1,11 @@
 {
   "light": {
     "color4": "#EDEEEF",
+    "color16": "#fff",
+    "color17": "##BFF5C5",
+    "color18": "#D0E9FF",
+    "color19": " #EDEEEF",
+    "color20": "#CBD2D9",
     "color21": "#001729",
     "color22": "#d6dadd",
     "color23": "#F2F2F8",
@@ -10,6 +15,12 @@
     "color27": "#ffffff"
   },
   "dark": {
+    "color4": "#475363",
+    "color16": "rgba(193, 198, 200, 0.3)",
+    "color17": "#3A5440",
+    "color18": "#456B8C",
+    "color19": " #3C4854",
+    "color20": "#CBD2D9",
     "color21": "#fff",
     "color22": "#fff",
     "color23": "#fff",

@@ -64,6 +64,8 @@ export default class BlustFurnace extends React.Component<any> {
   public render() {
     const { data } = this.state;
 
+    console.log(this.state.dataEx3, "dataEx3");
+
     return (
       <div className="furnace-container">
         <div className="furnace-title">
@@ -74,35 +76,35 @@ export default class BlustFurnace extends React.Component<any> {
           data={this.filterData(data, "ДЦ-1", "ДП-5")}
           name="ДЦ-1"
           secondName="ДП-3"
-          titleColor="#D0E9FF"
+          className="dc1"
           motionColor="#FFAD0F"
         />
         <Furnace
           data={this.filterData(data, "ДЦ-1", "ДП-4")}
           name="ДЦ-1"
           secondName="ДП-4"
-          titleColor="#D0E9FF"
+          className="dc1"
           motionColor="#FDDB99"
         />
         <Furnace
           data={this.filterData(data, "ДЦ-1", "ДП-5")}
           name="ДЦ-1"
           secondName="ДП-5"
-          titleColor="#D0E9FF"
+          className="dc1"
           motionColor="#78C98B"
         />
         <Furnace
           data={this.filterData(data, "ДЦ-2", "ДП-6")}
           name="ДЦ-2"
           secondName="ДП-6"
-          titleColor="#BFF5C5"
+          className="dc2"
           motionColor="#eb6d6d"
         />
         <Furnace
           data={this.filterData(data, "ДЦ-2", "ДП-7")}
           name="ДЦ-2"
           secondName="ДП-7"
-          titleColor="#BFF5C5"
+          className="dc2"
           motionColor="#FDDB99"
         />
         <Footer />
