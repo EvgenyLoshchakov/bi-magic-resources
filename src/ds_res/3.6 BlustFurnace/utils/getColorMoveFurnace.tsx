@@ -1,8 +1,4 @@
-const STOPPED = "stopped";
-const LOW = "low";
-const QUIET = "quiet";
-const NORM = "norm";
-const FULL = "full";
+import { STOPPED, LOW, QUIET, NORM, FULL } from "../constants";
 
 const getColorMoveFurnace = (data) => {
   return data?.map((item) => {

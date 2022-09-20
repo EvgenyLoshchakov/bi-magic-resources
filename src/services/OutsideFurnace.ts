@@ -1,7 +1,7 @@
 import { AppConfig, BaseService } from "bi-internal/core";
 import axios from "axios";
 
-export interface IMyServiceModel {
+export interface IOutsideFurnaceService {
   loading?: boolean;
   error?: string;
   data: any;
@@ -9,7 +9,7 @@ export interface IMyServiceModel {
   dimensions: any;
   currentDate: any;
 }
-export class MyService extends BaseService<IMyServiceModel> {
+export class OutsideFurnaceService extends BaseService<IOutsideFurnaceService> {
   private readonly id: string | number;
 
   private constructor(koobId: string) {
@@ -101,18 +101,23 @@ export class MyService extends BaseService<IMyServiceModel> {
   }
 
   protected _dispose() {
-    if (window.__myService && window.__myService[String(this.id)]) {
-      delete window.__myService[String(this.id)];
+    if (
+      window.__OutsideFurnaceService &&
+      window.__OutsideFurnaceService[String(this.id)]
+    ) {
+      delete window.__OutsideFurnaceService[String(this.id)];
     }
     super._dispose();
   }
-  public static createInstance(id: string | number): MyService {
-    if (!window.__myService) {
-      window.__myService = {};
+  public static createInstance(id: string | number): OutsideFurnaceService {
+    if (!window.__OutsideFurnaceService) {
+      window.__OutsideFurnaceService = {};
     }
-    if (!window.__myService.hasOwnProperty(String(id))) {
-      window.__myService[String(id)] = new MyService(String(id));
+    if (!window.__OutsideFurnaceService.hasOwnProperty(String(id))) {
+      window.__OutsideFurnaceService[String(id)] = new OutsideFurnaceService(
+        String(id)
+      );
     }
-    return window.__myService[String(id)];
+    return window.__OutsideFurnaceService[String(id)];
   }
 }

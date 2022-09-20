@@ -1,8 +1,8 @@
 import React from "react";
 import "./styles.scss";
-import { MyService } from "../services/MyService";
+import { OutsideFurnaceService } from "../../services/OutsideFurnace";
 import { ThemeVC } from "bi-internal/services";
-import { mainKoob } from "../constants";
+import { mainKoob } from "../../constants";
 import CircularProgress from "@mui/material/CircularProgress";
 import Box from "@mui/material/Box";
 
@@ -25,7 +25,7 @@ const renderColumns = [
 ];
 
 export default class Table extends React.Component<any> {
-  private _myService: MyService;
+  private _OutsideFurnaceService: OutsideFurnaceService;
   public _chart: any = null;
 
   public state: {
@@ -46,8 +46,8 @@ export default class Table extends React.Component<any> {
   public componentDidMount(): void {
     ThemeVC.getInstance().subscribeUpdatesAndNotify(this._onThemeVCUpdated);
     const koob = mainKoob;
-    this._myService = MyService.createInstance(koob);
-    this._myService.subscribeUpdatesAndNotify(this._onSvcUpdated);
+    this._OutsideFurnaceService = OutsideFurnaceService.createInstance(koob);
+    this._OutsideFurnaceService.subscribeUpdatesAndNotify(this._onSvcUpdated);
   }
 
   private _onThemeVCUpdated = (themeVM): void => {
@@ -63,7 +63,7 @@ export default class Table extends React.Component<any> {
 
     if (model.loading || model.error) return;
 
-    this._myService
+    this._OutsideFurnaceService
       .getKoobDataByCfg({
         with: koob,
         columns: renderColumns,

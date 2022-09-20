@@ -1,8 +1,8 @@
 import React from "react";
 import "./styles.scss";
-import { MyService } from "../services/MyService";
+import { OutsideFurnaceService } from "../../services/OutsideFurnace";
 import { ThemeVC } from "bi-internal/services";
-import { dateFormat } from "../utils/dateformat";
+import { dateFormat } from "./utils/dateformat";
 import dayjs, { Dayjs } from "dayjs";
 import TextField from "@mui/material/TextField";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
@@ -10,7 +10,7 @@ import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { DesktopDatePicker } from "@mui/x-date-pickers/DesktopDatePicker";
 
 export default class MyCustomComponent extends React.Component<any> {
-  private _myService: MyService;
+  private _IOutsideFurnaceService: OutsideFurnaceService;
   public _chart: any = null;
 
   public state: {
@@ -35,8 +35,8 @@ export default class MyCustomComponent extends React.Component<any> {
     const { cfg } = this.props;
     const koob =
       cfg.getRaw().koob || "luxmsbi.custom_melt_steel_oper_newation_4";
-    this._myService = MyService.createInstance(koob);
-    this._myService.subscribeUpdatesAndNotify(this._onSvcUpdated);
+    this._OutsideFurnaceService = OutsideFurnaceService.createInstance(koob);
+    this._OutsideFurnaceService.subscribeUpdatesAndNotify(this._onSvcUpdated);
   }
 
   private _onThemeVCUpdated = (themeVM): void => {
@@ -62,12 +62,14 @@ export default class MyCustomComponent extends React.Component<any> {
     this.setState({ value: newValue });
 
     const valueFormat = newValue?.format().slice(0, 11);
-    this._myService?.setCurrentDate(`${valueFormat}00:00:00.000+00:00`);
+    this._OutsideFurnaceService?.setCurrentDate(
+      `${valueFormat}00:00:00.000+00:00`
+    );
   };
 
   setToday = () => {
     this.setState({ value: dayjs(new Date()) });
-    this._myService?.setCurrentDate(dateFormat(new Date()));
+    this._OutsideFurnaceService?.setCurrentDate(dateFormat(new Date()));
   };
 
   public render() {

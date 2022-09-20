@@ -1,13 +1,11 @@
 import React from "react";
 import "./styles.scss";
-import Header from "./BlustFurnace/components/Header";
-import Footer from "./BlustFurnace/components/Footer";
-import Furnace from "./BlustFurnace/components/Furnace";
-import { BlustFurnaceService } from "../services/BlustFurnace";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+import Furnace from "./components/Furnace";
+import { BlustFurnaceService } from "../../services/BlustFurnace";
 import { ThemeVC } from "bi-internal/services";
-
-const DC1 = "ДЦ-1";
-const DC2 = "ДЦ-2";
+import { DC1, DC2, DP3, DP4, DP5, DP6, DP7 } from "./constants";
 
 export default class BlustFurnace extends React.Component<any> {
   private _BlustFurnaceService: BlustFurnaceService;
@@ -91,36 +89,36 @@ export default class BlustFurnace extends React.Component<any> {
         <Header />
 
         <Furnace
-          data={this.filterData(data, DC1, "ДП-3")}
-          dataEx6={dataEx6.filter((item) => item.dp === "ДП-3")}
+          data={this.filterData(data, DC1, DP3)}
+          dataEx6={dataEx6.filter((item) => item.dp === DP3)}
           name={DC1}
           className="dc1"
           currentTheme={currentTheme}
         />
         <Furnace
-          data={this.filterData(data, DC1, "ДП-4")}
-          dataEx6={dataEx6.filter((item) => item.dp === "ДП-4")}
+          data={this.filterData(data, DC1, DP4)}
+          dataEx6={dataEx6.filter((item) => item.dp === DP4)}
           name={DC1}
           className="dc1"
           currentTheme={currentTheme}
         />
         <Furnace
-          data={this.filterData(data, DC1, "ДП-5")}
-          dataEx6={dataEx6.filter((item) => item.dp === "ДП-5")}
+          data={this.filterData(data, DC1, DP5)}
+          dataEx6={dataEx6.filter((item) => item.dp === DP5)}
           name={DC1}
           className="dc1"
           currentTheme={currentTheme}
         />
         <Furnace
-          data={this.filterData(data, DC2, "ДП-6")}
-          dataEx6={dataEx6.filter((item) => item.dp === "ДП-6")}
+          data={this.filterData(data, DC2, DP6)}
+          dataEx6={dataEx6.filter((item) => item.dp === DP6)}
           name={DC2}
           className="dc2"
           currentTheme={currentTheme}
         />
         <Furnace
-          data={this.filterData(data, DC2, "ДП-7")}
-          dataEx6={dataEx6.filter((item) => item.dp === "ДП-7")}
+          data={this.filterData(data, DC2, DP7)}
+          dataEx6={dataEx6.filter((item) => item.dp === DP7)}
           name={DC2}
           className="dc2"
           currentTheme={currentTheme}

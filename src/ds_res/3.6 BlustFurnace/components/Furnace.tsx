@@ -5,16 +5,18 @@ import getColorMoveFurnace from "../utils/getColorMoveFurnace";
 
 const Furnace = ({ data, dataEx6, name, className, currentTheme }: any) => {
   const sum = (type: string) =>
-    data.map((item) => item[type]).reduce((partialSum, a) => partialSum + a, 0);
+    data
+      .map((item) => item[type])
+      ?.reduce((partialSum, a) => partialSum + a, 0);
 
   return (
     <div className="furnace">
       <div className="furnace-block-name">
         {getColorMoveFurnace(dataEx6) &&
-          dataEx6.map((item) => {
+          dataEx6?.map((item) => {
             return (
               <>
-                <div className={`${className} furnace-name`}>{item.dp}</div>
+                <div className={`${className} furnace-name`}>{item?.dp}</div>
                 <div
                   className={`${
                     getColorMoveFurnace(dataEx6)[0]
