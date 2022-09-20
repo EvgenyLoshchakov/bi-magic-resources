@@ -1,7 +1,7 @@
 import React from "react";
 import "../styles.scss";
 import Histogramm from "./Histogramm";
-import getColorMoveFurnace from "../utils";
+import getColorMoveFurnace from "../utils/getColorMoveFurnace";
 
 const Furnace = ({ data, dataEx6, name, className, currentTheme }: any) => {
   const sum = (type: string) =>

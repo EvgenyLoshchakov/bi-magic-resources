@@ -20,6 +20,7 @@ import { Bar } from "react-chartjs-2";
 
 const Histogramm = ({ data, currentTheme }) => {
   const labels = data?.map((item) => item.time_char);
+  const isThemeLight = currentTheme === "light";
 
   const options = {
     responsive: true,
@@ -30,12 +31,12 @@ const Histogramm = ({ data, currentTheme }) => {
     scales: {
       x: {
         ticks: {
-          color: currentTheme === "light" ? "#001729" : "#fff",
+          color: isThemeLight ? "#001729" : "#fff",
         },
       },
       y: {
         ticks: {
-          color: currentTheme === "light" ? "#001729" : "#fff",
+          color: isThemeLight ? "#001729" : "#fff",
         },
       },
     },
@@ -47,14 +48,12 @@ const Histogramm = ({ data, currentTheme }) => {
       {
         label: "План",
         data: data?.map((item) => item.plan),
-        backgroundColor: "#D0E9FF",
-        color: "red",
+        backgroundColor: isThemeLight ? "#D0E9FF" : "#456B8C",
       },
       {
         label: "Прогноз",
         data: data?.map((item) => item.prog),
-        backgroundColor: "#78C98B",
-        color: "blue",
+        backgroundColor: isThemeLight ? "#78C98B" : "#347041",
       },
     ],
   };
