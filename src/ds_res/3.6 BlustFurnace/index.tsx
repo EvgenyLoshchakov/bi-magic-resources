@@ -39,9 +39,17 @@ export default class BlustFurnace extends React.Component<any> {
     this._BlustFurnaceService = BlustFurnaceService.createInstance(koob);
     this._BlustFurnaceService.subscribeUpdatesAndNotify(this._onSvcUpdated);
 
+    this.timer = setInterval(() => {
+      this._BlustFurnaceService.subscribeUpdatesAndNotify(this._onSvcUpdated);
+    }, 360000);
+
     this.setState({
       currentTheme: ThemeVC.getInstance()._model.currentThemeId,
     });
+  }
+
+  public componentWillUnMount() {
+    clearInterval(this.timer);
   }
 
   private _onThemeVCUpdated = (themeVM): void => {
@@ -77,8 +85,6 @@ export default class BlustFurnace extends React.Component<any> {
   public render() {
     const { data, dataEx3, dataEx4, dataEx5, dataEx6, currentTheme } =
       this.state;
-
-    console.log(currentTheme, "currentTheme");
 
     return (
       <div className="furnace-container">

@@ -1,12 +1,12 @@
 import { AppConfig, BaseService } from "bi-internal/core";
 import axios from "axios";
 
-export interface IMyServiceModel {
+export interface IBlustFurnaceService {
   loading?: boolean;
   error?: string;
   data: any;
 }
-export class BlustFurnaceService extends BaseService<IMyServiceModel> {
+export class BlustFurnaceService extends BaseService<IBlustFurnaceService> {
   private readonly id: string | number;
 
   private constructor(koobId: string) {
@@ -22,6 +22,7 @@ export class BlustFurnaceService extends BaseService<IMyServiceModel> {
     });
 
     this.id = koobId;
+
     const dimensions = [
       "plan",
       "prog",
