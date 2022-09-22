@@ -37,50 +37,58 @@ export class BlustFurnaceService extends BaseService<IBlustFurnaceService> {
     const dimensionsEx5 = ["analitika", "put", "value"];
     const dimensionsEx6 = ["dp", "value"];
 
-    this.getKoobDataByCfg({
-      with: "luxmsbi.custom_dp_3_6_ex1",
-      columns: dimensions,
-    }).then((data) => {
-      this._updateWithData({
-        data,
+    const getData = () => {
+      this.getKoobDataByCfg({
+        with: "luxmsbi.custom_dp_3_6_ex1",
+        columns: dimensions,
+      }).then((data) => {
+        this._updateWithData({
+          data,
+        });
       });
-    });
 
-    this.getKoobDataByCfg({
-      with: "luxmsbi.custom_dp_3_6_ex3",
-      columns: dimensionsEx3,
-    }).then((dataEx3) => {
-      this._updateWithData({
-        dataEx3,
+      this.getKoobDataByCfg({
+        with: "luxmsbi.custom_dp_3_6_ex3",
+        columns: dimensionsEx3,
+      }).then((dataEx3) => {
+        this._updateWithData({
+          dataEx3,
+        });
       });
-    });
 
-    this.getKoobDataByCfg({
-      with: "luxmsbi.custom_dp_3_6_ex4",
-      columns: dimensionsEx4,
-    }).then((dataEx4) => {
-      this._updateWithData({
-        dataEx4,
+      this.getKoobDataByCfg({
+        with: "luxmsbi.custom_dp_3_6_ex4",
+        columns: dimensionsEx4,
+      }).then((dataEx4) => {
+        this._updateWithData({
+          dataEx4,
+        });
       });
-    });
 
-    this.getKoobDataByCfg({
-      with: "luxmsbi.custom_dp_3_6_ex5",
-      columns: dimensionsEx5,
-    }).then((dataEx5) => {
-      this._updateWithData({
-        dataEx5,
+      this.getKoobDataByCfg({
+        with: "luxmsbi.custom_dp_3_6_ex5",
+        columns: dimensionsEx5,
+      }).then((dataEx5) => {
+        this._updateWithData({
+          dataEx5,
+        });
       });
-    });
 
-    this.getKoobDataByCfg({
-      with: "luxmsbi.custom_dp_3_6_ex6",
-      columns: dimensionsEx6,
-    }).then((dataEx6) => {
-      this._updateWithData({
-        dataEx6,
+      this.getKoobDataByCfg({
+        with: "luxmsbi.custom_dp_3_6_ex6",
+        columns: dimensionsEx6,
+      }).then((dataEx6) => {
+        this._updateWithData({
+          dataEx6,
+        });
       });
-    });
+    };
+
+    getData();
+
+    setInterval(() => {
+      getData();
+    }, 60000);
   }
 
   public async getKoobDataByCfg(cfg): Promise<any> {
