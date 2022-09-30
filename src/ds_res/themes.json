@@ -1,13 +1,11 @@
 {
   "light": {
-    "color4": "#fff",
     "color10": "#78c98b",
     "color11": "#fddb99",
     "color12": "#EB6D6D",
     "color13": "#99A2A9",
     "color14": "#d6dadd",
     "color15": "#40515E",
-    "color16": "#fff",
     "color17": "#BFF5C5",
     "color18": "#D0E9FF",
     "color19": "#EDEEEF",
@@ -18,17 +16,16 @@
     "color24": "#000000",
     "color25": "#F2F2F8",
     "color26": "#167ffb",
-    "color27": "#fff"
+    "color27": "#fff",
+    "color28": "#fff"
   },
   "dark": {
-    "color4": "#475363",
     "color10": "#347041",
     "color11": "#CC9325",
     "color12": "#9E4646",
     "color13": "#788996",
     "color14": "rgba(128, 139, 148, 0.36)",
     "color15": "#CBD2D9",
-    "color16": "rgba(193, 198, 200, 0.3)",
     "color17": "#3A5440",
     "color18": "#456B8C",
     "color19": "#3C4854",
@@ -39,6 +36,7 @@
     "color24": "#fff",
     "color25": "#fff",
     "color26": "#fff",
-    "color27": "rgba(38, 34, 80, 0.65)"
+    "color27": "rgba(38, 34, 80, 0.65)",
+    "color28": "#475363"
   }
 }

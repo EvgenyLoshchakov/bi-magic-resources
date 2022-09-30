@@ -93,7 +93,7 @@
     min-width: 103px;
     padding: 14px 13px 15px 13px;
     border-radius: 4px;
-    background-color: $color4;
+    background-color: $color28;
 
     .furnace-name {
       margin-bottom: 12px;
@@ -145,14 +145,14 @@
     margin: 0 8px;
     border-radius: 4px;
     width: 100%;
-    background-color: $color4;
+    background-color: $color28;
   }
 
   .furnace-results {
     padding: 12px 16px;
     min-width: 290px;
     @include block;
-    background-color: $color4;
+    background-color: $color28;
 
     .furnace-results-title {
       margin-bottom: 14px;
@@ -192,7 +192,7 @@
     padding-left: 24px;
     border-bottom: 1px solid $color14;
     width: 100%;
-    background-color: $color4;
+    background-color: $color28;
     color: $color21;
 
     div:first-child {
