@@ -18,7 +18,7 @@
     "color24": "#000000",
     "color25": "#F2F2F8",
     "color26": "#167ffb",
-    "this var no exist": "#fff"
+    "color27": "#fff"
   },
   "dark": {
     "color4": "#475363",
@@ -39,6 +39,6 @@
     "color24": "#fff",
     "color25": "#fff",
     "color26": "#fff",
-    "highlight-color7": "rgba(38, 34, 80, 0.65)"
+    "color27": "rgba(38, 34, 80, 0.65)"
   }
 }
