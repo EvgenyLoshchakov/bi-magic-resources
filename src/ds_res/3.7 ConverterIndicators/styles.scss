@@ -1,0 +1,169 @@
+@import "../vars.scss";
+
+.converters-table {
+  width: 1840px;
+  font-family: PTRootUI, sans-serif;
+  padding: 20px 20px 200px 20px;
+  overflow: auto;
+  height: 100%;
+  color: $color21;
+}
+
+.row {
+  display: flex;
+
+  &:last-child {
+    .item {
+      border-bottom: 1px solid $color24;
+    }
+  }
+}
+
+.item {
+  border-top: 1px solid $color24;
+  border-left: 1px solid $color24;
+  min-width: 120px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &:last-child {
+    border-right: 1px solid $color24;
+  }
+}
+
+.item-order {
+  min-width: 40px;
+}
+
+.item-unit {
+  min-width: 80px;
+}
+
+.item-name {
+  min-width: 480px;
+  justify-content: flex-start;
+  padding-left: 10px;
+}
+
+.header {
+  .header-title {
+    font-size: 24px;
+    font-weight: 500;
+    color: $color24;
+    margin: 0 0 30px 0;
+  }
+
+  .row {
+    &:last-child {
+      .item {
+        border-bottom: none;
+      }
+    }
+  }
+
+  .header-total {
+    font-weight: 700;
+    border-top: 1px solid $color24;
+    border-right: 1px solid $color24;
+    border-left: 1px solid $color24;
+    display: flex;
+    color: $color21;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 190px;
+    min-width: 1800px;
+    height: 40px;
+  }
+
+  .header-block {
+    min-width: 240px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &:last-child {
+      .item {
+        border-right: 1px solid $color24;
+      }
+      .item:last-child {
+        border-right: 1px solid $color24;
+      }
+    }
+
+    .header-item-measure {
+      display: flex;
+      justify-content: space-between;
+
+      .item {
+        border-right: none;
+      }
+    }
+
+    .item {
+      width: 100%;
+      color: $color21;
+      font-weight: 500;
+    }
+  }
+
+  .item-order,
+  .item-unit,
+  .item-name {
+    height: 80px;
+    color: $color21;
+  }
+}
+
+// Scroll bar (Mozilla)
+html,
+body {
+  scrollbar-color: #e0e3e5; /* «цвет ползунка» «цвет полосы скроллбара» */
+  scrollbar-width: 8px; /* толщина */
+}
+
+// Webkit
+/* полоса прокрутки (скроллбар) */
+::-webkit-scrollbar {
+  width: 8px; /* ширина для вертикального скролла */
+  height: 8px; /* высота для горизонтального скролла */
+  background-color: transparent;
+  border-radius: 100px;
+}
+
+/* ползунок скроллбара */
+::-webkit-scrollbar-thumb {
+  background-color: #e0e3e5;
+  height: 90px;
+  border-radius: 9em;
+  position: relative;
+  z-index: 999999999;
+  box-shadow: inset 1px 1px 30px #e0e3e5;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #253861;
+}
+
+/* Стрелки */
+
+::-webkit-scrollbar-button:vertical:start:decrement {
+  background: transparent;
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-button:vertical:end:increment {
+  background: transparent;
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-button:horizontal:start:decrement {
+  background: transparent;
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-button:horizontal:end:increment {
+  background: transparent;
+  background-color: transparent;
+}
